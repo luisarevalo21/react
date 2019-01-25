@@ -1,0 +1,6 @@
+{
+  "locations": [
+    { "location": "EBF", "title": "EBF", "google_sheet": "sheet 1" },
+    { "location": "PVP", "title": "PVP", "google_sheet": "sheet 2" }
+  ]
+}
