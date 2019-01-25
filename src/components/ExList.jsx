@@ -13,62 +13,18 @@ class ExList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false,
-      location: "",
-      google_sheet: "",
-      Locations: [
-        {
-          location: "EBF",
-          title: "EBF",
-          google_sheet: "sheet 1"
-        },
-        { location: "PVP", title: "PVP", google_sheet: "sheet 2" }
-      ]
+      Exclusive_Gyms: ["EBF", "PVP"]
     };
   }
   componentDidMount() {}
   render() {
-    // if (this.state.redirect === true) {
-    //   console.log(this.state.location);
-    //   return (
-    //     <Gym
-    //       location={this.state.location}
-    //       google_sheet={this.state.google_sheet}
-    //     />
-    //   );
-    // }
-    const finishedList = this.state.Locations.map((value, i) => (
-      <li onClick={() => this.handleClick(value)} key={i}>
-        {" "}
-        {value.location}
+    const finishedList = this.state.Exclusive_Gyms.map((value, i) => (
+      <li key={i}>
+        <Link to={"/gym/" + value}>{value} </Link>
       </li>
     ));
 
-    return (
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/gym">Gym</Link>
-          </li>
-          <li>
-            <Link to="/gym/EBF">Gym</Link>
-          </li>
-        </ul>
-        <ul>{finishedList}</ul>
-      </div>
-    );
-  }
-
-  handleClick(value) {
-    console.log("value", value.location);
-    this.setState({
-      redirect: true,
-      location: value.location,
-      google_sheet: value.google_sheet
-    });
+    return <ul>{finishedList}</ul>;
   }
 }
 
