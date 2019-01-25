@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import List from "./List";
 
 class Gym extends Component {
   constructor(props) {

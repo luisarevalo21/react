@@ -5,22 +5,14 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import List from "./components/List";
-import Gym from "./components/List";
+import ExList from "./components/ExList";
+import Gym from "./components/Gym";
 
 const Root = () => (
   <Router>
     <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/gym">Gym</Link>
-        </li>
-      </ul>
       <Switch>
-        <Route exact path="/" component={List} />
+        <Route exact path="/" component={ExList} />
         <Route path="/gym/:location" component={Gym} />
       </Switch>
     </div>

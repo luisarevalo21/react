@@ -4,11 +4,12 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
+  Link
 } from "react-router-dom";
 import Gym from "./Gym";
 
-class List extends Component {
+class ExList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +17,11 @@ class List extends Component {
       location: "",
       google_sheet: "",
       Locations: [
-        { location: "EBF", title: "EBF", google_sheet: "sheet 1" },
+        {
+          location: "EBF",
+          title: "EBF",
+          google_sheet: "sheet 1"
+        },
         { location: "PVP", title: "PVP", google_sheet: "sheet 2" }
       ]
     };
@@ -39,7 +44,22 @@ class List extends Component {
       </li>
     ));
 
-    return <ul>{finishedList}</ul>;
+    return (
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/gym">Gym</Link>
+          </li>
+          <li>
+            <Link to="/gym/EBF">Gym</Link>
+          </li>
+        </ul>
+        <ul>{finishedList}</ul>
+      </div>
+    );
   }
 
   handleClick(value) {
@@ -52,4 +72,4 @@ class List extends Component {
   }
 }
 
-export default List;
+export default ExList;
